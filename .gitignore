@@ -1,0 +1,27 @@
+# Virtualenv
+venv/
+env/
+*.venv
+ENV/
+
+# Binary
+__pycache__/
+*.py[cod]
+*$py.class
+
+db.sqlite3
+*.sqlite3
+
+*.log
+logs/
+
+
+# IDE / Editor specific files
+.vscode/
+.env
+
+
+node_modules/
+
+.next/
+out/
