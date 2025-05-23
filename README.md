@@ -24,7 +24,7 @@ If the `.sh` files are not executeable then change their permissions by using `c
 After running the `init.sh`, the application is ready to be started. The `run.sh` utility may be used to start the celery service, python server and the front end in a single go. The application may be accessed at `localhost:3000`, with the backend being available on `localhost:8000`.
 
 ### Tournament
-Keeping in mind that practically the tournament will be controlled by the admin, using a admin interface, the tournament has been designed to be run using CLI commands. To populate the database with Users, BotSubmissions and Teams, run the following comamnd.
+Keeping in mind that practically the tournament will be controlled by the admin, using a admin interface, the tournament has been designed to be run using CLI commands. To populate the database with Users, BotSubmissions and Teams, run the following comamnd. Also note that all the commands of django must be run while in the virtual environment, which can be accessed by using `source venc/bin/activate` while in the root directory. 
 
 ```sh
 python manage.py populate_db --num_teams=<number_of_teams> --password=<OPTIONAL: password_for_users>
