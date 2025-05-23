@@ -1,9 +1,13 @@
 # Prog Battle - PClub Task
 
-This repository contains the source code and instructions to run for my submission for the **PClub Recruitment Task: Prog Battle**. The project is built on django (backend) and NextJS (frontend). 
+This repository contains the source code and instructions to run for my submission for the **PClub Recruitment Task: Prog Battle**. The project is built on django (backend) and NextJS (frontend). The bonus task challenge, and queueing up tasks have been implemented.
 
 ## Initializing
-The project requires nodejs, npm, python, pip and redis-server installed and set-up on a linux machine to run properly. Though it can be run on Windows easily, instructions here are provided only for Linux desktop environments. The .sh files can be run on windows too by usage of git bash.
+The project requires nodejs, npm, python, pip and redis-server installed and set-up on a linux machine to run properly. Though it can be run on Windows easily, instructions here are provided only for Linux desktop environments. The .sh files can be run on windows too by gs at the frontend itself, To help you: Research about HTML Canvas) Simulation video
+
+Bonus Check the submission using some sort of plagiarism detector and flag those submissions for the admin.
+
+Bonus It is possible that the simulation or the evaluation can't be done on the spot due to overload on serve, structure your project tusage of git bash.
 
 Please install redis-server using the package manager corresponding to your distro, on Ubuntu systems, it can be installed using the following command `sudo apt update && sudo apt install redis-server`. After installation it must be confirmed that the service is running properly. To run the service, 
 ```sh
@@ -30,3 +34,15 @@ To start the first round of the tournament against the provided system bot, run 
 python manage.py start_round_one --games_per_team=<num_games>
 ```
 It runs `num_games` number of matches against the system for each user which are queued up and run asynchronously using celery. The more the number of games, the longer it takes for the matches to be finished, but also, more accurate is the difference between each bot, which can help prevent ties between bots. I recommend using 5 as the number of games for a good measure. 
+
+#### Round 2 
+The round 2 is entirely managed using the command line. This is also a result of a security consideration to prevent unnecesary complexity, which may accidentally leave vulnerable endpoints with admin capabilities open to other users. The tournament is customizeable, and can be run with more than 16 people too, but they must be multiples of 32. However, the Bracket page isn't capable of handling more than 16 matches, due to time constraints and no explicit mention of such a requirement in the task description. The entire tournament can be run by sequentially running the following commands, waiting for a couple seconds after every execution to make sure the queued tasks have finished executing.
+
+```sh
+python manage.py manage_round_two --stage_teams=16 --initial_qualifiers_count=16
+python manage.py manage_round_two --stage_teams=8 --initial_qualifiers_count=16
+python manage.py manage_round_two --stage_teams=4 --initial_qualifiers_count=16
+python manage.py manage_round_two --stage_teams=2 --initial_qualifiers_count=16
+```
+
+The `--stage_teams` flag signifies the number of teams participating in the given stage, and `--initial_qualifiers_count` flag, as the name implies is used to tell the program how many teams have initially qualified. 
