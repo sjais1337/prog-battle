@@ -2,7 +2,7 @@
 
 This repository contains the source code and instructions to run for my submission for the **PClub Recruitment Task: Prog Battle**. The project is built on django (backend) and NextJS (frontend). 
 
-### Initializing
+## Initializing
 The project requires nodejs, npm, python, pip and redis-server installed and set-up on a linux machine to run properly. Though it can be run on Windows easily, instructions here are provided only for Linux desktop environments. The .sh files can be run on windows too by usage of git bash.
 
 Please install redis-server using the package manager corresponding to your distro, on Ubuntu systems, it can be installed using the following command `sudo apt update && sudo apt install redis-server`. After installation it must be confirmed that the service is running properly. To run the service, 
@@ -13,5 +13,20 @@ sudo systemctl start redis-server
 Once all the required services are up and running properly, the `init.sh` utility may be used to initialize the application. The utility initializes a virtual environment, installs the required python packages, checks if the redis server is up and running, makes and applies the migrations for the db models, installs npm packages and finally builds the frontend.
 
 If the `.sh` files are not executeable then change their permissions by using `chmod +x init.sh` and `chmod +x run.sh` to make them executeable. 
-### Running 
+## Running 
 After running the `init.sh`, the application is ready to be started. The `run.sh` utility may be used to start the celery service, python server and the front end in a single go. The application may be accessed at `localhost:3000`, with the backend being available on `localhost:8000`.
+
+### Tournament
+Keeping in mind that practically the tournament will be controlled by the admin, using a admin interface, the tournament has been designed to be run using CLI commands. To populate the database with Users, BotSubmissions and Teams, run the following comamnd.
+
+```sh
+python manage.py populate_db --num_teams=<number_of_teams> --password=<OPTIONAL: password_for_users>
+```
+This creates a number of users with usernames like `user1`, `user2` and so on with the specified password. Not much variation has been allowed to allow for simplicty during testing. Make sure that the number of teams created is more than 16 so thar the Round 2 of the tournament can be tested, a good number would be 24 or 32. 
+
+#### Round 1
+To start the first round of the tournament against the provided system bot, run the following command
+```sh
+python manage.py start_round_one --games_per_team=<num_games>
+```
+It runs `num_games` number of matches against the system for each user which are queued up and run asynchronously using celery. The more the number of games, the longer it takes for the matches to be finished, but also, more accurate is the difference between each bot, which can help prevent ties between bots. I recommend using 5 as the number of games for a good measure. 
