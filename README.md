@@ -6,11 +6,7 @@ This repository contains the source code and instructions to run for my submissi
 Not much research was involved, but I discovered celery and redis for asynchronous updates. 
 
 ## Initializing
-The project requires nodejs, npm, python, pip and redis-server installed and set-up on a linux machine to run properly. Though it can be run on Windows easily, instructions here are provided only for Linux desktop environments. The .sh files can be run on windows too by gs at the frontend itself, To help you: Research about HTML Canvas) Simulation video
-
-Bonus Check the submission using some sort of plagiarism detector and flag those submissions for the admin.
-
-Bonus It is possible that the simulation or the evaluation can't be done on the spot due to overload on serve, structure your project tusage of git bash.
+The project requires nodejs, npm, python, pip and redis-server installed and set-up on a linux machine to run properly. Though it can be run on Windows easily, instructions here are provided only for Linux desktop environments. The .sh files can be run on windows too by using git bash terminal, and redis may be installed using an .exe file I suppose. 
 
 Please install redis-server using the package manager corresponding to your distro, on Ubuntu systems, it can be installed using the following command `sudo apt update && sudo apt install redis-server`. After installation it must be confirmed that the service is running properly. To run the service, 
 ```sh
