@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
+import os 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -120,6 +122,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+
+MEDIA_URL = '/media/'  # Must start and end with a slash
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 STATIC_URL = 'static/'
 
 # Default primary key field type
@@ -141,3 +147,19 @@ REST_FRAMEWORK = {
 AUTH_USER_MODEL = 'accounts.User'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CLEER_TIMEZONE = 'Asia/Kolkata'
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 2*60
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'ROTATE_AFTER_ROTATION': False,
+    'BLACKLIST_AFTER_ROTATION': False
+}

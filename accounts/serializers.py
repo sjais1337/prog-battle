@@ -1,6 +1,7 @@
 from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from tournament.models import Team
 
 User = get_user_model()
 
@@ -40,8 +41,27 @@ class UserSerializer(serializers.ModelSerializer):
 
         return user
     
+
+class BasicTeamInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Team
+        fields = ('id', 'name')
+
 class UserDetailSerializer(serializers.ModelSerializer):
+
+    teams = BasicTeamInfoSerializer(
+        source='members_of_team',
+        many=True, 
+        read_only=True
+    )
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name')
+        fields = (
+            'id', 
+            'username', 
+            'email', 
+            'first_name', 
+            'last_name', 
+            'teams'
+        )
