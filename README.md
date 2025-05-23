@@ -2,6 +2,9 @@
 
 This repository contains the source code and instructions to run for my submission for the **PClub Recruitment Task: Prog Battle**. The project is built on django (backend) and NextJS (frontend). The bonus task challenge, and queueing up tasks have been implemented.
 
+## Research
+Not much research was involved, but I discovered celery and redis for asynchronous updates. 
+
 ## Initializing
 The project requires nodejs, npm, python, pip and redis-server installed and set-up on a linux machine to run properly. Though it can be run on Windows easily, instructions here are provided only for Linux desktop environments. The .sh files can be run on windows too by gs at the frontend itself, To help you: Research about HTML Canvas) Simulation video
 
