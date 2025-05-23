@@ -1,6 +1,8 @@
 # Prog Battle - PClub Task
 
-This repository contains the source code and instructions to run for my submission for the **PClub Recruitment Task: Prog Battle**. The project is built on django (backend) and NextJS (frontend). The bonus task challenge, and queueing up tasks have been implemented.
+This repository contains the source code and instructions to run for my submission for the **PClub Recruitment Task: Prog Battle**. The project is built on django (backend) and NextJS (frontend). The bonus task challenge, and queueing up tasks have been implemented. Here is a video showcasing the app.
+
+https://drive.google.com/file/d/17GOoAMbUJ94AjSvaqIj_9K1zH-BIH9U3/view?usp=sharing
 
 ## Research
 Not much research was involved, but I discovered celery and redis for asynchronous updates. 
