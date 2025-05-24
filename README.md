@@ -6,10 +6,14 @@ To properly navigate the Postman documentation, create a account using the Regis
 
 Postman Documentation for API: https://web.postman.co/workspace/4f1a2a01-bb9f-4756-85c8-6f0eaad31762
 
-Video Showcasing App: https://drive.google.com/file/d/17GOoAMbUJ94AjSvaqIj_9K1zH-BIH9U3/view?usp=sharing
+Video Showcasing App: [https://drive.google.com/file/d/17GOoAMbUJ94AjSvaqIj_9K1zH-BIH9U3/view?usp=sharing](https://drive.google.com/file/d/1E87v5uk6xUZHepI2KQb-y_yiS7W7Cg5_/view?usp=sharing)
 
 ## Research
-Not much research was involved, but I discovered celery and redis for asynchronous updates. However after careful consideration, it was decided that it's best to keep the tournament execution part to admin tools instead of creating an interface, or automating the process, since it's how it would work in a real tournament.
+To decide the stack for the application, the main factor considered was how fast the application could be developed. In deciding the framework for backend, the options were django, flask, and nodejs (combined with NextAuth). In NextJS the authentication and File Uploading system would have to be implemented from scratch, and I would have to use non native methods of executing Python scripts in NodeJS, and would likely have to use child_processes. Considering the tradeoffs, and django having a ready toolset of administration and authentication, I figured it'll be the best to use django for the backend for easy authentication, API creation, and engine execution.
+
+In the front end, I decided to go with NextJS although not much functionality of NextJS was used except for Auth Context, and an alternative light framework could do the job too. The cause for this choice was past familiarity with NextJS. 
+
+Not much other research was involved, but I discovered celery and redis for asynchronous updates. However after careful consideration, it was decided that it's best to keep the tournament execution part to admin tools instead of creating an interface, or automating the process, since it's how it would work in a real tournament.
 
 ## Initializing
 The project requires nodejs, npm, python, pip and redis-server installed and set-up on a linux machine to run properly. Though it can be run on Windows easily, instructions here are provided only for Linux desktop environments. The .sh files can be run on windows too by using git bash terminal, and redis may be installed using an .exe file I suppose. 
