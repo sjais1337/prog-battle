@@ -2,6 +2,8 @@
 
 This repository contains the source code and instructions to run for my submission for the **PClub Recruitment Task: Prog Battle**. The project is built on django (backend) and NextJS (frontend). The bonus task challenge, and queueing up tasks have been implemented. 
 
+To properly navigate the Postman documentation, create a account using the Register endpoint in accounts folder, and add the access token to the TOKEN key in vault. To properly test the endpoints, a minimum of two users are required (i.e. for the challenges section).
+
 Postman Documentation for API: https://web.postman.co/workspace/4f1a2a01-bb9f-4756-85c8-6f0eaad31762
 
 Video Showcasing App: https://drive.google.com/file/d/17GOoAMbUJ94AjSvaqIj_9K1zH-BIH9U3/view?usp=sharing
