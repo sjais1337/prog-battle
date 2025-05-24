@@ -1,11 +1,13 @@
 # Prog Battle - PClub Task
 
-This repository contains the source code and instructions to run for my submission for the **PClub Recruitment Task: Prog Battle**. The project is built on django (backend) and NextJS (frontend). The bonus task challenge, and queueing up tasks have been implemented. Here is a video showcasing the app.
+This repository contains the source code and instructions to run for my submission for the **PClub Recruitment Task: Prog Battle**. The project is built on django (backend) and NextJS (frontend). The bonus task challenge, and queueing up tasks have been implemented. 
 
-https://drive.google.com/file/d/17GOoAMbUJ94AjSvaqIj_9K1zH-BIH9U3/view?usp=sharing
+Postman Documentation for API: https://web.postman.co/workspace/4f1a2a01-bb9f-4756-85c8-6f0eaad31762
+
+Video Showcasing App: https://drive.google.com/file/d/17GOoAMbUJ94AjSvaqIj_9K1zH-BIH9U3/view?usp=sharing
 
 ## Research
-Not much research was involved, but I discovered celery and redis for asynchronous updates. 
+Not much research was involved, but I discovered celery and redis for asynchronous updates. However after careful consideration, it was decided that it's best to keep the tournament execution part to admin tools instead of creating an interface, or automating the process, since it's how it would work in a real tournament.
 
 ## Initializing
 The project requires nodejs, npm, python, pip and redis-server installed and set-up on a linux machine to run properly. Though it can be run on Windows easily, instructions here are provided only for Linux desktop environments. The .sh files can be run on windows too by using git bash terminal, and redis may be installed using an .exe file I suppose. 
